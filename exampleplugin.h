@@ -16,10 +16,10 @@ class TEXTOSAURUS_DLLSPEC_EXPORT ExamplePlugin : public QObject, public PluginBa
     explicit ExamplePlugin(QObject* parent = nullptr);
     virtual ~ExamplePlugin() override;
 
-    QString name() const;
-    QList<BaseSidebar*> sidebars();
-    QList<QAction*> userActions();
-    void setTextApp(TextApplication *text_app, Settings *settings, IconFactory *icon_factory);
+    QString name() const override;
+    QList<BaseSidebar*> sidebars() override;
+    QList<QAction*> userActions() override;
+    void setTextApp(TextApplication *text_app, Settings *settings, IconFactory *icon_factory) override;
 };
 
 #endif // EXAMPLEPLUGIN_H
