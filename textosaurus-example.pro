@@ -10,6 +10,7 @@ else {
 
 TEMPLATE = lib
 QT       *= widgets
+CONFIG += unversioned_libname unversioned_soname skip_target_version_ext
 DEFINES *= TEXTOSAURUS_DLLSPEC= TEXTOSAURUS_DLLSPEC_EXPORT=Q_DECL_EXPORT QT_DEPRECATED_WARNINGS
 
 message(textosaurus repository root folder is: $$TEXTOSAURUS_REPO)
