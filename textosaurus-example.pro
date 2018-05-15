@@ -8,23 +8,24 @@ else {
   TARGET      = libtextosaurus-example
 }
 
-QT       *= widgets
 TEMPLATE = lib
+QT       *= widgets
 DEFINES *= TEXTOSAURUS_DLLSPEC= TEXTOSAURUS_DLLSPEC_EXPORT=Q_DECL_EXPORT QT_DEPRECATED_WARNINGS
+
+message(textosaurus repository root folder is: $$TEXTOSAURUS_REPO)
+message(libtextosaurus binary folder is: $$LIBTEXTOSAURUS_BIN_LIB)
+
+# Setup inclusion of (lib)textosaurus, which is needed
+# by every plugin. Every plugin must link
+# against libtextosaurus.
+INCLUDEPATH += $$TEXTOSAURUS_REPO/src/libtextosaurus
+DEPENDPATH += $$LIBTEXTOSAURUS_BIN_LIB
+
+win32: LIBS += -L$$LIBTEXTOSAURUS_BIN_LIB -llibtextosaurus
+unix: LIBS += -L$$LIBTEXTOSAURUS_BIN_LIB -ltextosaurus
 
 SOURCES += \
         exampleplugin.cpp
 
 HEADERS += \
         exampleplugin.h
-
-message(textosaurus repository root folder is: $$TEXTOSAURUS_REPO)
-message(libtextosaurus binary folder is: $$LIBTEXTOSAURUS_BIN_LIB)
-
-# Setup include paths for headers.
-
-INCLUDEPATH += $$TEXTOSAURUS_REPO/src/libtextosaurus
-DEPENDPATH += $$LIBTEXTOSAURUS_BIN_LIB
-
-win32: LIBS += -L$$LIBTEXTOSAURUS_BIN_LIB -llibtextosaurus
-unix: LIBS += -L$$LIBTEXTOSAURUS_BIN_LIB -ltextosaurus
