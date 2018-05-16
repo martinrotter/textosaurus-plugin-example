@@ -46,7 +46,12 @@ message(Libtextosaurus binary folder is: $$LIBTEXTOSAURUS_BIN_LIB)
 # Setup inclusion of (lib)textosaurus, which is needed
 # by every plugin. Every plugin must link
 # against libtextosaurus.
-INCLUDEPATH += $$TEXTOSAURUS_REPO/src $$TEXTOSAURUS_REPO/src/libtextosaurus
+INCLUDEPATH +=  $$TEXTOSAURUS_REPO/src \
+                $$TEXTOSAURUS_REPO/src/libtextosaurus \
+                $$TEXTOSAURUS_REPO/src/libtextosaurus/3rd-party/scintilla/qt/ScintillaEditBase \
+                $$TEXTOSAURUS_REPO/src/libtextosaurus/3rd-party/scintilla/include \
+                $$TEXTOSAURUS_REPO/src/libtextosaurus/3rd-party/scintilla/src
+
 DEPENDPATH += $$LIBTEXTOSAURUS_BIN_LIB
 
 win32: LIBS += -L$$LIBTEXTOSAURUS_BIN_LIB -llibtextosaurus

@@ -6,6 +6,7 @@
 #include "libtextosaurus/saurus/miscellaneous/textapplication.h"
 #include "libtextosaurus/saurus/miscellaneous/textapplicationsettings.h"
 #include "libtextosaurus/saurus/gui/tabwidget.h"
+#include "libtextosaurus/saurus/gui/texteditor.h"
 
 #include <QMessageBox>
 #include <QAction>
@@ -36,9 +37,13 @@ QList<QAction*> ExamplePlugin::userActions() {
 void ExamplePlugin::start(TextApplication *text_app, Settings *settings, IconFactory *icon_factory) {
   QMessageBox::information(nullptr, "Example plugin loaded", "Example plugin loaded");
 
-  /*connect(text_app->tabWidget(), &TabWidget::currentChanged, [](int index) {
-    QMessageBox::information(nullptr, "Example plugin loaded", QString("%1").arg(QString::number(index)));
-  });*/
+  connect(text_app->tabWidget(), &TabWidget::currentChanged, [text_app](int index) {
+    if (index >= 0) {
+      text_app->tabWidget()->currentEditor()->appendText(5, "123456789");
+    }
+  });
 }
 
-void ExamplePlugin::stop() {}
+void ExamplePlugin::stop() {
+  QMessageBox::information(nullptr, "Example plugin stopping", "Example plugin stopping");
+}
