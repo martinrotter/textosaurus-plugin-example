@@ -1,14 +1,18 @@
+// For license of this file, see <project-root-folder>/LICENSE.md.
+
 #include "exampleplugin.h"
 
-#include "common/miscellaneous/settings.h"
-#include "saurus/miscellaneous/textapplication.h"
-#include "saurus/miscellaneous/textapplicationsettings.h"
-#include "saurus/gui/tabwidget.h"
+#include "libtextosaurus/common/miscellaneous/settings.h"
+#include "libtextosaurus/saurus/miscellaneous/textapplication.h"
+#include "libtextosaurus/saurus/miscellaneous/textapplicationsettings.h"
+#include "libtextosaurus/saurus/gui/tabwidget.h"
 
 #include <QMessageBox>
 #include <QAction>
 
-ExamplePlugin::ExamplePlugin(QObject *parent) {}
+ExamplePlugin::ExamplePlugin(QObject *parent) {
+  Q_UNUSED(parent)
+}
 
 ExamplePlugin::~ExamplePlugin() {
   qDebug("Destroying ExamplePlugin instance.");
@@ -29,10 +33,12 @@ QList<QAction*> ExamplePlugin::userActions() {
   };
 }
 
-void ExamplePlugin::setTextApp(TextApplication *text_app, Settings *settings, IconFactory *icon_factory) {
+void ExamplePlugin::start(TextApplication *text_app, Settings *settings, IconFactory *icon_factory) {
   QMessageBox::information(nullptr, "Example plugin loaded", "Example plugin loaded");
 
   /*connect(text_app->tabWidget(), &TabWidget::currentChanged, [](int index) {
     QMessageBox::information(nullptr, "Example plugin loaded", QString("%1").arg(QString::number(index)));
   });*/
 }
+
+void ExamplePlugin::stop() {}
