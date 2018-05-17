@@ -24,6 +24,10 @@ QString ExamplePlugin::name() const {
   return tr("Example Plugin");
 }
 
+QString ExamplePlugin::id() const {
+  return QSL("io.github.martinrotter.textosaurus.example");
+}
+
 QList<BaseSidebar*> ExamplePlugin::sidebars() {
   return {};
 }
@@ -34,7 +38,7 @@ QList<QAction*> ExamplePlugin::userActions() {
   };
 }
 
-void ExamplePlugin::start(TextApplication *text_app, Settings *settings, IconFactory *icon_factory) {
+void ExamplePlugin::start(QWidget *main_form_widget, TextApplication *text_app, Settings *settings, IconFactory *icon_factory) {
   QMessageBox::information(nullptr, "Example plugin loaded", "Example plugin loaded");
 
   connect(text_app->tabWidget(), &TabWidget::currentChanged, [text_app](int index) {

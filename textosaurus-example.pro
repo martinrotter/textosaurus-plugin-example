@@ -8,12 +8,12 @@
 #### How to compile
 ##
 ## You need to have libtextosaurus repository cloned and submodules recursively updated. You also
-## have to compile libtextosaurus because every plugin must link against libtextosaurus library.
+## have to compile libtextosaurus (or download relevant prebuilt binaries) because every plugin must link against libtextosaurus library.
 ## You can find libtextosaurus here (https://github.com/martinrotter/textosaurus/tree/master/src/libtextosaurus),
 ## it is part of Textosaurus source code tree.
 ##
 ## QMake usage: qmake "TEXTOSAURUS_REPO=<repo-root-folder>" "LIBTEXTOSAURUS_BIN_LIB=<folder-with-dll-lib-so>"
-## Example: qmake "TEXTOSAURUS_REPO=c:\\textilosaurus" "LIBTEXTOSAURUS_BIN_LIB=c:\\libtextosaurus\\bin"
+## Example: qmake "TEXTOSAURUS_REPO=c:\\my-repos\\textosaurus" "LIBTEXTOSAURUS_BIN_LIB=c:\\my-programs\\textosaurus"
 
 include($$PWD/plugin-common-setup.pri)
 

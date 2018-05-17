@@ -19,9 +19,10 @@ class TEXTOSAURUS_DLLSPEC_EXPORT ExamplePlugin : public QObject, public PluginBa
     virtual ~ExamplePlugin() override;
 
     virtual QString name() const override;
+    virtual QString id() const override;
     virtual QList<BaseSidebar*> sidebars() override;
     virtual QList<QAction*> userActions() override;
-    virtual void start(TextApplication *text_app, Settings *settings, IconFactory *icon_factory) override;
+    virtual void start(QWidget* main_form_widget, TextApplication *text_app, Settings *settings, IconFactory *icon_factory) override;
     virtual void stop() override;
 };
 
