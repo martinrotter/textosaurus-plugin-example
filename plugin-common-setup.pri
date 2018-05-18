@@ -40,17 +40,17 @@ DEFINES *= TEXTOSAURUS_DLLSPEC=Q_DECL_IMPORT TEXTOSAURUS_DLLSPEC_EXPORT=Q_DECL_E
 # Import Scintilla classes.
 DEFINES *= EXPORT_IMPORT_API=Q_DECL_IMPORT
 
-message(Textosaurus repository root folder is: $$TEXTOSAURUS_REPO)
+message(Textosaurus repository root folder is: $$TEXTOSAURUS_INCLUDE)
 message(Libtextosaurus binary folder is: $$LIBTEXTOSAURUS_BIN_LIB)
 
 # Setup inclusion of (lib)textosaurus, which is needed
 # by every plugin. Every plugin must link
 # against libtextosaurus.
-INCLUDEPATH +=  $$TEXTOSAURUS_REPO/src \
-                $$TEXTOSAURUS_REPO/src/libtextosaurus \
-                $$TEXTOSAURUS_REPO/src/libtextosaurus/3rd-party/scintilla/qt/ScintillaEditBase \
-                $$TEXTOSAURUS_REPO/src/libtextosaurus/3rd-party/scintilla/include \
-                $$TEXTOSAURUS_REPO/src/libtextosaurus/3rd-party/scintilla/src
+INCLUDEPATH +=  $$TEXTOSAURUS_INCLUDE \
+                $$TEXTOSAURUS_INCLUDE/libtextosaurus \
+                $$TEXTOSAURUS_INCLUDE/libtextosaurus/3rd-party/scintilla/qt/ScintillaEditBase \
+                $$TEXTOSAURUS_INCLUDE/libtextosaurus/3rd-party/scintilla/include \
+                $$TEXTOSAURUS_INCLUDE/libtextosaurus/3rd-party/scintilla/src
 
 DEPENDPATH += $$LIBTEXTOSAURUS_BIN_LIB
 

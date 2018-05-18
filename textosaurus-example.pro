@@ -5,15 +5,15 @@
 ##
 ##   include($$PWD/plugin-common-setup.pri)
 ##
-#### How to compile
+#### How to compile (use A or B)
 ##
-## You need to have libtextosaurus repository cloned and submodules recursively updated. You also
-## have to compile libtextosaurus (or download relevant prebuilt binaries) because every plugin must link against libtextosaurus library.
-## You can find libtextosaurus here (https://github.com/martinrotter/textosaurus/tree/master/src/libtextosaurus),
-## it is part of Textosaurus source code tree.
+## A) Download latest prebuilt release of Textosaurus (all C++ header files and *{dll,lib} files are bundled in it).
+## B) Compiled Textosaurus from source.
 ##
-## QMake usage: qmake "TEXTOSAURUS_REPO=<repo-root-folder>" "LIBTEXTOSAURUS_BIN_LIB=<folder-with-dll-lib-so>"
-## Example: qmake "TEXTOSAURUS_REPO=c:\\my-repos\\textosaurus" "LIBTEXTOSAURUS_BIN_LIB=c:\\my-programs\\textosaurus"
+## Every plugin must link against libtextosaurus library.
+##
+## QMake usage: qmake "TEXTOSAURUS_INCLUDE=<inlude-headers-root-folder>" "LIBTEXTOSAURUS_BIN_LIB=<folder-with-dll-lib-so>"
+## Example: qmake "TEXTOSAURUS_INCLUDE=c:\\textosaurus\\include" "LIBTEXTOSAURUS_BIN_LIB=c:\\my-programs\\textosaurus"
 
 include($$PWD/plugin-common-setup.pri)
 
