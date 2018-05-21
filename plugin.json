@@ -1,4 +1,5 @@
 {
   "name": "Example Plugin",
-  "author": "Martin Rotter"
+  "author": "Martin Rotter",
+  "website": "http://example.com"
 }

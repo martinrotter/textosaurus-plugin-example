@@ -31,3 +31,6 @@ SOURCES += \
 
 HEADERS += \
         exampleplugin.h
+
+DISTFILES += \
+        plugin.json
