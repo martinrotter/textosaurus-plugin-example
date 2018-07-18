@@ -9,6 +9,8 @@
 
 #include <QtGlobal>
 
+class QLabel;
+
 class TEXTOSAURUS_DLLSPEC_EXPORT ExamplePlugin : public QObject, public PluginBase {
   Q_OBJECT
   Q_PLUGIN_METADATA(IID "io.github.martinrotter.textosaurus.example" FILE "plugin.json")
@@ -26,6 +28,14 @@ class TEXTOSAURUS_DLLSPEC_EXPORT ExamplePlugin : public QObject, public PluginBa
                        Settings* settings, IconFactory* icon_factory,
                        WebFactory* web_factory) override;
     virtual void stop() override;
+
+  private slots:
+    void onUpdateUi(int updated);
+
+  private:
+    QWidget* m_mainWidget;
+    QWidget *m_widgetInfo;
+    QLabel* m_lblInfo;
 };
 
 #endif // EXAMPLEPLUGIN_H
