@@ -38,7 +38,10 @@ QList<QAction*> ExamplePlugin::userActions() {
   };
 }
 
-void ExamplePlugin::start(QWidget *main_form_widget, TextApplication *text_app, Settings *settings, IconFactory *icon_factory) {
+void ExamplePlugin::start(
+    QWidget *main_form_widget, TextApplication *text_app,
+    Settings *settings, IconFactory *icon_factory,
+    WebFactory *web_factory) {
   QMessageBox::information(nullptr, "Example plugin loaded", "Example plugin loaded");
 
   connect(text_app->tabWidget(), &TabWidget::currentChanged, [text_app](int index) {
