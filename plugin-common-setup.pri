@@ -1,14 +1,6 @@
 TEMPLATE = lib
-CONFIG += unversioned_libname unversioned_soname skip_target_version_ext c++1z warn_on resources_small
+CONFIG += unversioned_libname unversioned_soname skip_target_version_ext c++17 warn_on resources_small
 CONFIG -=  debug_and_release
-
-msvc {
-  QMAKE_CXXFLAGS += /std:c++latest
-}
-
-gcc|g++|clang* {
-  QMAKE_CXXFLAGS += -std=c++17
-}
 
 # Setup specific compiler options.
 CONFIG(release, debug|release) {
@@ -37,8 +29,9 @@ DEFINES *= QT_DEPRECATED_WARNINGS QT_USE_QSTRINGBUILDER QT_USE_FAST_CONCATENATIO
 # Import libtextosaurus classes and export this plugin classes.
 DEFINES *= TEXTOSAURUS_DLLSPEC=Q_DECL_IMPORT TEXTOSAURUS_DLLSPEC_EXPORT=Q_DECL_EXPORT
 
-# Import Scintilla classes.
+# Import Scintilla classes and setup path to Scintilla.
 DEFINES *= EXPORT_IMPORT_API=Q_DECL_IMPORT
+DEFINES *= SCINTILLA_DIR=$${TEXTOSAURUS_INCLUDE}/libtextosaurus/3rd-party/scintilla/
 
 message(Textosaurus repository root folder is: $$TEXTOSAURUS_INCLUDE)
 message(Libtextosaurus binary folder is: $$LIBTEXTOSAURUS_BIN_LIB)
